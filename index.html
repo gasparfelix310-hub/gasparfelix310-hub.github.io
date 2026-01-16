@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Formulário – Bola de vôlei</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(#ffffff, #d6eaff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .form-container {
+        background: #fff;
+        width: 380px;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        border-top: 10px solid #ffcc00;
+        position: relative;
+    }
+
+    
+    .ball {
+        width: 80px;
+        height: 80px;
+        background: radial-gradient(circle, #ffffff 40%, #ffd900 40%, #ffd900 60%, #2f6ded 60%, #2f6ded 80%, #ff0000 80%);
+        border-radius: 50%;
+        position: absolute;
+        top: -50px;
+        right: -20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+        text-align: center;
+        color: #003d99;
+    }
+
+    label {
+        font-weight: bold;
+        color: #003d99;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 8px;
+        margin: 6px 0 15px 0;
+        border: 2px solid #2f6ded;
+        border-radius: 6px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background: #2f6ded;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background: #003d99;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="form-container">
+    <div class="ball"></div>
+    <h2>Ficha – Bola de Vôlei</h2>
+
+    <form>
+        <label>Marca da Bola:</label>
+        <input type="text" placeholder="Ex: Mikasa">
+
+        <label>Tamanho:</label>
+        <select>
+            <option>Oficial</option>
+            <option>Infantil</option>
+            <option>Treino</option>
+        </select>
+
+        <label>Peso (g):</label>
+        <input type="number" placeholder="Ex: 260">
+
+        <label>Material:</label>
+        <input type="text" placeholder="Ex: Couro sintético">
+
+        <label>Cor Predominante:</label>
+        <input type="text" placeholder="Ex: Amarela e Azul">
+
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+
+</body>
+</html>
