@@ -5,6 +5,29 @@
 <title>Formulário – Bola de vôlei</title>
 
 <style>
+    .lista-bolas {
+    margin-top: 30px;
+}
+
+.lista-bolas h3 {
+    text-align: center;
+    color: #003d99;
+}
+
+.lista-bolas ul {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-bolas li {
+    background: #e6f0ff;
+    margin: 8px 0;
+    padding: 10px;
+    border-left: 6px solid #ffcc00;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #003d99;
+}
     body {
         font-family: Arial, sans-serif;
         background: linear-gradient(#ffffff, #d6eaff);
@@ -78,7 +101,18 @@
 <div class="form-container">
     <div class="ball"></div>
     <h2>Ficha – Bola de Vôlei</h2>
-
+      
+    <div class="lista-bolas">
+    <h3>Modelos de Bolas de Vôlei</h3>
+    <ul>
+        <li>Mikasa V200W – Oficial FIVB</li>
+        <li>Penalty VP 5000 – Profissional</li>
+        <li>Molten V5M5000 – Competição</li>
+        <li>Penalty MG 3600 – Treino</li>
+        <li>Mikasa Beach Pro – Vôlei de Praia</li>
+    </ul>
+</div>
+    
     <form>
         <label>Marca da Bola:</label>
         <input type="text" placeholder="Ex: Mikasa">
