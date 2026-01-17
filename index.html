@@ -1,140 +1,232 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Formulário – Bola de vôlei</title>
+    <meta charset="UTF-8">
+    <title>Cadastro de Bolas de Vôlei</title>
 
-<style>
- .lista-bolas {
-    margin-top: 30px;
-}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f6ff;
+            padding: 20px;
+        }
 
-.lista-bolas h3 {
-    text-align: center;
-    color: #003d99;
-}
+        h1, h2 {
+            text-align: center;
+            color: #0033a0;
+        }
 
-.lista-bolas ul {
-    list-style: none;
-    padding: 0;
-}
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
 
-.lista-bolas li {
-    background: #e6f0ff;
-    margin: 8px 0;
-    padding: 10px;
-    border-left: 6px solid #ffcc00;
-    border-radius: 6px;
-    font-weight: bold;
-    color: #003d99;
-}
-    body {
-        font-family: Arial, sans-serif;
-        background: linear-gradient(#ffffff, #d6eaff);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-    }
+        label {
+            font-weight: bold;
+        }
 
-    .form-container {
-        background: #fff;
-        width: 380px;
-        padding: 25px;
-        border-radius: 12px;
-        box-shadow: 0 0 15px rgba(0,0,0,0.2);
-        border-top: 10px solid #ffcc00;
-        position: relative;
-    }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px 0;
+        }
 
-    
-    .ball {
-        width: 80px;
-        height: 80px;
-        background: radial-gradient(circle, #ffffff 40%, #ffd900 40%, #ffd900 60%, #2f6ded 60%, #2f6ded 80%, #ff0000 80%);
-        border-radius: 50%;
-        position: absolute;
-        top: -50px;
-        right: -20px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    }
+        button {
+            padding: 8px 12px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
 
-    h2 {
-        text-align: center;
-        color: #003d99;
-    }
+        .btn-enviar {
+            background-color: #0033a0;
+            color: white;
+            width: 100%;
+        }
 
-    label {
-        font-weight: bold;
-        color: #003d99;
-    }
+        .btn-editar {
+            background-color: orange;
+            color: white;
+        }
 
-    input, select {
-        width: 100%;
-        padding: 8px;
-        margin: 6px 0 15px 0;
-        border: 2px solid #2f6ded;
-        border-radius: 6px;
-    }
+        .btn-excluir {
+            background-color: red;
+            color: white;
+        }
 
-    button {
-        width: 100%;
-        padding: 10px;
-        background: #2f6ded;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
-    }
+        .btn-importar, .btn-exportar {
+            background-color: green;
+            color: white;
+        }
 
-    button:hover {
-        background: #003d99;
-    }
-</style>
+        ul {
+            list-style: none;
+            padding: 0;
+        }
 
+        li {
+            background: #e6eeff;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="form-container">
-<div class="lista-bolas">
-    <h3>Modelos de Bolas de Vôlei</h3>
-    <ul>
-        <li>Mikasa V200W – Oficial FIVB</li>
-        <li>Penalty VP 5000 – Profissional</li>
-        <li>Molten V5M5000 – Competição</li>
-        <li>Penalty MG 3600 – Treino</li>
-        <li>Mikasa Beach Pro – Vôlei de Praia</li>
-    </ul>
-</div>
-    <div class="ball"></div>
-    <h2>Ficha – Bola de Vôlei</h2>
+<div class="container">
 
-    <form>
+    <h1>Ficha – Bola de Vôlei</h1>
+
+
+    <form id="formulario">
         <label>Marca da Bola:</label>
-        <input type="text" placeholder="Ex: Mikasa">
+        <input type="text" id="marca" required>
 
         <label>Tamanho:</label>
-        <select>
+        <select id="tamanho">
             <option>Oficial</option>
-            <option>Infantil</option>
-            <option>Treino</option>
+            <option>Juvenil</option>
         </select>
 
         <label>Peso (g):</label>
-        <input type="number" placeholder="Ex: 260">
+        <input type="number" id="peso" required>
 
         <label>Material:</label>
-        <input type="text" placeholder="Ex: Couro sintético">
+        <input type="text" id="material">
 
         <label>Cor Predominante:</label>
-        <input type="text" placeholder="Ex: Amarela e Azul">
+        <input type="text" id="cor">
 
-        <button type="submit">Enviar</button>
+        <button type="submit" class="btn-enviar">Salvar</button>
     </form>
+
+    <h2>Lista de Bolas</h2>
+
+    
+    <button class="btn-importar" onclick="importarCSV()">Importar</button>
+    <button class="btn-exportar" onclick="exportarCSV()">Exportar</button>
+
+    
+    <ul id="lista"></ul>
+
+    <input type="file" id="arquivo" style="display:none">
+
 </div>
+
+
+<script>
+    let bolas = [];
+    let editando = null;
+
+    const formulario = document.getElementById("formulario");
+    const lista = document.getElementById("lista");
+
+    
+    formulario.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const bola = {
+            marca: marca.value,
+            tamanho: tamanho.value,
+            peso: peso.value,
+            material: material.value,
+            cor: cor.value
+        };
+
+        if (editando === null) {
+            bolas.push(bola);
+        } else {
+            bolas[editando] = bola;
+            editando = null;
+        }
+
+        formulario.reset();
+        renderizar();
+    });
+
+    
+    function renderizar() {
+        lista.innerHTML = "";
+
+        bolas.forEach((bola, index) => {
+            const li = document.createElement("li");
+            li.innerHTML = `
+                <strong>${bola.marca}</strong> - ${bola.tamanho} - ${bola.peso}g<br>
+                ${bola.material} | ${bola.cor}<br>
+                <button class="btn-editar" onclick="editar(${index})">Editar</button>
+                <button class="btn-excluir" onclick="excluir(${index})">Excluir</button>
+            `;
+            lista.appendChild(li);
+        });
+    }
+
+
+    function editar(index) {
+        const bola = bolas[index];
+        marca.value = bola.marca;
+        tamanho.value = bola.tamanho;
+        peso.value = bola.peso;
+        material.value = bola.material;
+        cor.value = bola.cor;
+        editando = index;
+    }
+
+    
+    function excluir(index) {
+        bolas.splice(index, 1);
+        renderizar();
+    }
+
+    
+    function exportarCSV() {
+        let csv = "Marca,Tamanho,Peso,Material,Cor\n";
+        bolas.forEach(b => {
+            csv += `${b.marca},${b.tamanho},${b.peso},${b.material},${b.cor}\n`;
+        });
+
+        const blob = new Blob([csv], { type: "text/csv" });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "bolas_volei.csv";
+        a.click();
+    }
+
+    
+    function importarCSV() {
+        document.getElementById("arquivo").click();
+    }
+
+    document.getElementById("arquivo").addEventListener("change", function(e) {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function() {
+            const linhas = reader.result.split("\n");
+            bolas = [];
+
+            for (let i = 1; i < linhas.length; i++) {
+                const dados = linhas[i].split(",");
+                if (dados.length >= 5) {
+                    bolas.push({
+                        marca: dados[0],
+                        tamanho: dados[1],
+                        peso: dados[2],
+                        material: dados[3],
+                        cor: dados[4]
+                    });
+                }
+            }
+            renderizar();
+        };
+        reader.readAsText(file);
+    });
+</script>
 
 </body>
 </html>
