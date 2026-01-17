@@ -1,10 +1,4 @@
 # Trabalho-introdu-o-a-programa-o
-Trabalho para informar as 5 características para uma bola de vôlei
+Projeto desenvolvido para cadastrar e gerenciar bolas de vôlei, utilizando formulário, lista dinâmica e botões de edição, exclusão, importação e exportação de dados, com foco em simplicidade e boa experiência do usuário.
 
-Exemplo:
 
-Marca da Bola
-Tamanho
-Peso (g)
-Material
-Cor Predominante
